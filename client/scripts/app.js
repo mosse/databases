@@ -2,7 +2,7 @@
 app = {
 
     // server: 'https://api.parse.com/1/classes/chatterbox',
-    server: 'http://127.0.0.1:3000/classes/chatterbox',
+    server: 'http://127.0.0.1:3000/',
 
     init: function() {
       console.log('running chatterbox');
@@ -17,7 +17,7 @@ app = {
 
 
       app.loadMsgs();
-      setInterval( app.loadMsgs.bind(app), 1000);
+      setInterval( app.loadMsgs.bind(app), 3000);
 
       $('#send').on('submit', app.handleSubmit);
     },
@@ -61,7 +61,7 @@ app = {
     loadMsgs: function(){
       $.ajax({
         url: app.server,
-        data: { order: '-createdAt' },
+        data: { },
         contentType: 'application/json',
         success: function(json){
           app.displayMessages(json.results);

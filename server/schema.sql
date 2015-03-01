@@ -3,15 +3,18 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  username VARCHAR(60),
-  createdAt DATETIME,
-  message VARCHAR(140),
-  roomname VARCHAR(60)
+  id int NOT NULL AUTO_INCREMENT,
+  userid int NOT NULL,
+  roomname VARCHAR(60) NOT NULL,
+  message VARCHAR(200) NOT NULL,
+  PRIMARY KEY (ID)
 );
 
 CREATE TABLE users (
-  username VARCHAR(60),
-  avatarURL VARCHAR(200)
+  id int NOT NULL AUTO_INCREMENT,
+  username VARCHAR(40) NOT NULL,
+  avatarURL VARCHAR(200),
+  PRIMARY KEY (ID)
 );
 
 CREATE TABLE rooms (
